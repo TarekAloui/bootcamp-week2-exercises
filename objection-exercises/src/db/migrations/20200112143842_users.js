@@ -1,4 +1,3 @@
-
 exports.up = knex => knex.schema.createTable('users', table => {
   table
     .uuid('id')
@@ -11,9 +10,9 @@ exports.up = knex => knex.schema.createTable('users', table => {
     .unique()
     .notNullable()
 
-  table.string('firstName').notNullable()
+  table.string('first_name').notNullable()
 
-  table.string('lastName').notNullable()
+  table.string('last_name').notNullable()
 
   table.integer('age')
 

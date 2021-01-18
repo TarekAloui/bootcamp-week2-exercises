@@ -6,7 +6,7 @@ The database will contain 3 tables: users, posts and friends.
 | Users   |        |        |        |          |        |
 |---------|--------|--------|--------|----------|--------|
 | User Id | First  | Last   | bio    | birthday | Status |
-| int     | string | string | string | int      | Enum   |
+| uuid     | string | string | string | int      | Enum   |
 
 Ps: 
 - Birthday is int because we store a date-stamp (more efficient)
@@ -14,8 +14,8 @@ Ps:
 # Posts
 | Posts   |        |         |          |           |             |            |
 |---------|--------|---------|----------|-----------|-------------|------------|
-| Post Id | Text   | User Id | NumLikes | Media_Uri | Date Posted | LastEdited |
-| int     | string | int     | int      | string    | int         | int        |
+| Post Id | Text   | User Id | NumLikes | Media_Uri | Date Posted | Date Edited |
+| uuid     | string | int     | int      | string    | int         | int        |
 
 # Friends
 | Friendships |             |             |          |        |              |

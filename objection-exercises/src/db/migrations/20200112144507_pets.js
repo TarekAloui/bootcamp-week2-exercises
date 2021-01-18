@@ -1,4 +1,3 @@
-
 exports.up = knex => knex.schema.createTable('pets', table => {
   table
     .uuid('id')
@@ -7,7 +6,7 @@ exports.up = knex => knex.schema.createTable('pets', table => {
     .defaultTo(knex.raw('uuid_generate_v4()'))
 
   table
-    .uuid('ownerId')
+    .uuid('owner_id')
     .references('users.id')
     .onUpdate('CASCADE')
     .onDelete('CASCADE')
@@ -18,6 +17,5 @@ exports.up = knex => knex.schema.createTable('pets', table => {
 
   table.timestamps(true)
 })
-
 
 exports.down = knex => knex.schema.dropTableIfExists('pets')

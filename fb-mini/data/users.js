@@ -1,17 +1,16 @@
 const casual = require('casual')
 
 casual.define('user', () => ({
-  id: casual.uuid,
+  userId: casual.uuid,
   email: casual.email,
-  created_at: casual.moment,
-  updated_at: casual.moment,
+  first: casual.first_name,
+  last: casual.last_name,
+  bio: casual.short_description,
+  birthday: casual.date(format = 'YYYY-MM-DD'),
+  status: casual.random_element(['married', 'single', 'other'])
 }))
 
 
-const userData = []
-
-for (let i = 0; i < 20; ++i) {
-  userData.push(casual.user)
-}
+const userData = Array.from(Array(20),()=>casual.user)
 
 module.exports = userData

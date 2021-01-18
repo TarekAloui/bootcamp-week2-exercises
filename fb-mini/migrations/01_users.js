@@ -1,6 +1,6 @@
 exports.up = async knex => knex.schema.createTable('users', table => {
   table
-    .uuid('id')
+    .uuid('userId')
     .notNullable()
     .primary()
     .defaultTo(knex.raw('uuid_generate_v4()'))
@@ -9,6 +9,23 @@ exports.up = async knex => knex.schema.createTable('users', table => {
     .string('email')
     .unique()
     .notNullable()
+  
+  table
+    .string('first')
+    .notNullable()
+  
+  table
+    .string('last')
+    .notNullable()
+  
+  table
+    .string('bio')
+  
+  table
+    .datetime('birthday')
+  
+  table
+    .enum('status', ['married', 'single', 'other'])
 
   table.timestamps(true)
 })

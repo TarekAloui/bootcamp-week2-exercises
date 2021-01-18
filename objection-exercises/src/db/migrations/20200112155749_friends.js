@@ -1,4 +1,3 @@
-
 exports.up = knex => knex.schema.createTable('relations', table => {
   table
     .uuid('id')
@@ -7,13 +6,13 @@ exports.up = knex => knex.schema.createTable('relations', table => {
     .defaultTo(knex.raw('uuid_generate_v4()'))
 
   table
-    .uuid('parentId')
+    .uuid('parent_id')
     .references('users.id')
     .onUpdate('CASCADE')
     .onDelete('CASCADE')
 
   table
-    .uuid('childId')
+    .uuid('child_id')
     .references('users.id')
     .onUpdate('CASCADE')
     .onDelete('CASCADE')
